@@ -9,6 +9,7 @@ public class ImmutableClass {
         System.out.println(employee1.getId()+" " +employee1.getName()+" "+employee1.getRole());
         System.out.println(employee2.getId()+" " +employee2.getName()+" "+employee2.getRole());
         System.out.println(employee3.getId()+" " +employee3.getName()+" "+employee3.getRole());
+        System.out.println(employee1.toString());
     }
 }
 class Employee{
@@ -32,6 +33,15 @@ class Employee{
 
     public String getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
 
