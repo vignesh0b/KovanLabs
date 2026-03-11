@@ -10,21 +10,20 @@ public class ChatServer {
 
     public static void main(String[] args) {
 
+        startServer();
+    }
+
+
+    private static void startServer() {
         int port = 5000;
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-
             System.out.println("Chat Server Started on port " + port);
 
             while (true) {
 
                 Socket socket = serverSocket.accept();
-                System.out.println("New client connected");
-
-                ClientHandler client = new ClientHandler(socket);
-
-                clients.add(client);
-                new Thread(client).start();
+                handleClient(socket);
             }
 
         } catch (IOException e) {
@@ -32,12 +31,21 @@ public class ChatServer {
         }
     }
 
+    private static void handleClient(Socket socket) {
+
+        ClientHandler client = new ClientHandler(socket);
+
+        clients.add(client);
+        new Thread(client).start();
+    }
+
     // Broadcast message to all clients
     public static void broadcast(String message, ClientHandler sender) {
 
         for (ClientHandler client : clients) {
+
             if (client != sender) {
-                client.sendMessage(message);
+                client.sendMessage(sender.username+": "+message);
             }
         }
     }

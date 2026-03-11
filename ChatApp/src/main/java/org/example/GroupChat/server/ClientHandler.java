@@ -8,6 +8,7 @@ public class ClientHandler implements Runnable {
     private Socket socket;
     private BufferedReader reader;
     private PrintWriter writer;
+    String username;
 
     public ClientHandler(Socket socket) {
         this.socket = socket;
@@ -30,15 +31,17 @@ public class ClientHandler implements Runnable {
 
         try {
 
+            username = reader.readLine();
+            System.out.println(username+" connected to the server");
             while ((message = reader.readLine()) != null) {
 
-                System.out.println("Message: " + message);
+                System.out.println(username +": " + message);
 
                 ChatServer.broadcast(message, this);
             }
 
         } catch (IOException e) {
-            System.out.println("Client disconnected");
+            System.out.println(username+" disconnected");
 
         } finally {
             closeConnection();
