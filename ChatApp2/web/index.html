@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Group Chat</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,7 +21,11 @@
     <div class="chat-area">
 
         <div class="header">
-            Group Chat
+
+            <span id="chatHeader">Group Chat</span>
+
+            <button class="exit-btn" onclick="exitChat()">Exit</button>
+
         </div>
 
         <div id="messages" class="messages"></div>

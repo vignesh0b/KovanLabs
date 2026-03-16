@@ -5,15 +5,20 @@ background:#e5ddd5;
 }
 
 .app{
+width:900px;
+height:600px;
+margin:40px auto;
 display:flex;
-height:100vh;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
 
 .sidebar{
 width:220px;
-background:#2a3942;
+background:#2f3e46;
 color:white;
-padding:15px;
+padding:20px;
 }
 
 .sidebar ul{
@@ -25,6 +30,7 @@ padding:0;
 flex:1;
 display:flex;
 flex-direction:column;
+background:#ece5dd;
 }
 
 .header{
@@ -40,13 +46,15 @@ padding:20px;
 overflow-y:auto;
 display:flex;
 flex-direction:column;
+gap:10px;
 }
 
 .message{
+padding:10px 14px;
+border-radius:12px;
 max-width:60%;
-padding:10px;
-border-radius:10px;
-margin:5px 0;
+width:fit-content;
+word-wrap:break-word;
 }
 
 .me{
@@ -80,4 +88,120 @@ color:white;
 border:none;
 border-radius:5px;
 cursor:pointer;
+}
+.login-box{
+width:300px;
+margin:150px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+.login-box input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+.login-box button{
+padding:10px 20px;
+background:#075e54;
+color:white;
+border:none;
+}
+
+/* online user list */
+
+.sidebar ul{
+list-style:none;
+padding:0;
+margin-top:20px;
+}
+
+.sidebar li{
+display:flex;
+align-items:center;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+transition:background 0.2s;
+}
+
+.sidebar li:hover{
+background:#3a4b55;
+}
+
+/* user avatar circle */
+
+.user-avatar{
+width:35px;
+height:35px;
+border-radius:50%;
+background:#25d366;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:bold;
+margin-right:10px;
+font-size:14px;
+}
+
+/* username text */
+
+.username{
+font-size:15px;
+}
+/* header layout */
+
+.header{
+    background:#075e54;
+    color:white;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:18px;
+}
+
+/* exit button fixed top-left */
+
+.exit-btn{
+    background:#c0392b;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.exit-btn:hover{
+    background:#e74c3c;
+}
+.message{
+margin:4px 0;
+}
+
+.system{
+    align-self:center;
+    background:#e0e0e0;
+    color:#444;
+    padding:6px 12px;
+    border-radius:12px;
+    font-size:13px;
+    margin:10px 0;
+    width:fit-content;
+}
+.message{
+    padding:10px 14px;
+    border-radius:16px;
+    max-width:55%;
+    width:fit-content;
+    word-wrap:break-word;
+    font-size:15px;
+}
+.message{
+    box-shadow:0 1px 2px rgba(0,0,0,0.15);
 }

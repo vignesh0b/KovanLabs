@@ -46,8 +46,11 @@ public class ChatClientUI {
         inputField = new JTextField();
         inputField.addActionListener(e -> {
             String msg = inputField.getText();
-            writer.println(msg);
-            inputField.setText("");
+            if (!msg.trim().isEmpty()) {
+                writer.println(msg);                        // send to server
+                chatArea.append(username + ": " + msg + "\n"); // show locally
+                inputField.setText("");
+            }
         });
 
         frame.add(scrollPane, BorderLayout.CENTER);

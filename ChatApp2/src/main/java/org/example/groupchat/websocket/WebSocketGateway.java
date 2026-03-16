@@ -1,6 +1,5 @@
 package org.example.groupchat.websocket;
 
-import org.example.groupchat.core.MessageHub;
 import org.java_websocket.server.WebSocketServer;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
@@ -26,19 +25,22 @@ public class WebSocketGateway extends WebSocketServer {
 
         if(message.startsWith("JOIN:")){
 
-            String username = message.substring(5);
+            String username = message.substring(5).trim();
 
-            users.put(conn,username);
+            // check duplicate
+            if(users.containsValue(username)){
+                conn.send("SYSTEM: Username already taken");
+                return;
+            }
 
-            broadcast("SYSTEM: "+username+" joined the chat");
+            users.put(conn, username);
+
+            broadcast("SYSTEM: " + username + " joined the chat");
 
             sendUserList();
-
         }
         else{
-
             broadcast(message);
-
         }
     }
 
